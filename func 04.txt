@@ -1,0 +1,28 @@
+ CREATE OR REPLACE FUNCTION get_stock_quantity(p_id INT)
+postgres-# returns INT
+postgres-# LANGUAGE plpgsql
+postgres-# AS $$
+postgres$# DECLARE
+postgres$#  stock_quantity INT;
+postgres$# BEGIN
+postgres$#  SELECT p.stock
+postgres$# INTO stock_quantity
+postgres$# FROM product p
+postgres$# WHERE p_product_id =p_id;
+postgres$# return stock quantity;END;
+postgres$# $$
+postgres-#
+postgres-#
+postgres-# ;
+CREATE FUNCTION
+postgres=# SELECT get_stock_quantity(1);
+ERROR:  relation "product" does not exist
+LINE 2:                     FROM product p
+                                 ^
+QUERY:  SELECT p.stock
+                    FROM product p
+WHERE p_product_id =p_id
+CONTEXT:  PL/pgSQL function get_stock_quantity(integer) line 5 at SQL statement
+postgres=#
+
+

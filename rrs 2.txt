@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION get_product_details(p_id INT)
+RETURNS TEBLE (product_name TEXT,product_price DECIMAL)
+LANGUAGE plpgsql
+AS
+$$
+BEGIN
+	--Return the product name and price for the given product_id
+	RETURN QUERY
+	SELECT name, price
+	FROM products
+	WHERE product_id = p_id;
+END;
+$$;

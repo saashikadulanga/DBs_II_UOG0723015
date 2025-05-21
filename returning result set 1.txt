@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION get_product_name(p_id INT)
+RETURN SETOF TEXT
+LANGUAGE plpgsql
+AS 
+$$
+BEGIN
+   --Return the product name based on the product_id
+  RETURN QUERY
+  SELECT name
+  FROM products
+  WHERE product_id = p_id
+END;
+$$;

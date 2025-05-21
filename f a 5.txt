@@ -1,0 +1,25 @@
+CREATE OR REPLACE FUNCTION get_stock_value(p_id INT)
+RETURNS NUMERIC AS $$
+DECLARE
+    stock_value NUMERIC;
+BEGIN
+    SELECT price * stock_quantity
+    INTO stock_value
+    FROM product
+    WHERE product_id = p_id;
+
+    RETURN stock_value;
+END;
+$$ LANGUAGE plpgsql;
+SELECT get_stock_value(1);
+
+
+
+
+CREATE OR REPLACE FUNCTION get_stock_value(p_id INT)
+RETURNS DECIMAL
+LANGUAGE plpgsql 
+AS $$
+DECLARE total_stock_value
+FROM 
+ 

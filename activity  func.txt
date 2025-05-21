@@ -1,0 +1,24 @@
+
+
+
+write a postgreSQL function name is _even that accepts and integer and returns TRUE if the number is even,and False if it is odd.use a variable to store tye result before returning 
+
+CREATE OR REPLACE FUNCTION _even(num INT)
+RETURNS BOOLEAN
+LANGUAGE plpgsql
+AS $$
+DECLARE
+  is_even BOOLEAN;
+BEGIN
+  IF num % 2 = 0 THEN
+    is_even := TRUE;
+  ELSE
+    is_even := FALSE;
+  END IF;
+
+  RETURN is_even;
+END;
+$$;
+
+
+           

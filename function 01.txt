@@ -1,0 +1,13 @@
+ CREATE OR REPLACE FUNCTION double_price(price DECIMAL(10,2))
+postgres-# RETURNS DECIMAL(10,2)
+postgres-# LANGUAGE plpgsql
+postgres-# AS $$
+postgres$# BEGIN
+postgres$#   RETURN price * 2;
+postgres$# END;
+postgres$# $$;
+CREATE FUNCTION
+postgres=# SELECT double_price(100.00);
+ double_price
+--------------
+       200.00

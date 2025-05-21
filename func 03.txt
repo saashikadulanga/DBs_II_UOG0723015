@@ -1,0 +1,15 @@
+
+postgres=# CREATE OR REPLACE FUNCTION double_inout(INOUT num INT)
+postgres-# LANGUAGE plpgsql
+postgres-# AS $$
+postgres$# BEGIN
+postgres$#   num := num * 2;
+postgres$# END;
+postgres$# $$;
+CREATE FUNCTION
+postgres=# SELECT double_inout(10);
+ double_inout
+--------------
+           20
+(1 row)
+
